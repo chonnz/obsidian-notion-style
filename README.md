@@ -22,9 +22,9 @@ dark theme:
 
 ### Typography
 
-- **Font stack** — matches Notion exactly: `ui-sans-serif`, `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, `Helvetica`, `Arial`
+- **Font stack** — `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, with full CJK coverage: Simplified Chinese (`Microsoft YaHei`, `Noto Sans SC`), Traditional Chinese (`Microsoft JhengHei`, `Noto Sans TC`), Japanese (`Meiryo`, `Yu Gothic`, `Noto Sans JP`), Korean (`Malgun Gothic`, `Noto Sans KR`)
 - **Heading scale** — six levels with a clear size gradient (H1 `1.875em` → H6 `0.875em`), bold weights, and tight letter-spacing on H1/H2
-- **Body text** — 16px base, 1.6 line-height, optimized with `-webkit-font-smoothing: antialiased`
+- **Body text** — 16px base, 1.4 line-height, optimized with `-webkit-font-smoothing: subpixel-antialiased`
 - **Inline code** — soft gray background with red text (`#eb5757` light / `#ff7b72` dark), compact border radius
 - **Monospace font** — `SFMono-Regular`, Menlo, Consolas fallback stack
 
