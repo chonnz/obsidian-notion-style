@@ -180,15 +180,18 @@ body.theme-dark {
 
 .theme-light, .theme-dark {
   /* Font stack — mirrors Notion exactly */
-  --font-text-theme:   ui-sans-serif, -apple-system, BlinkMacSystemFont,
-                       "Segoe UI", Helvetica, "Apple Color Emoji",
-                       Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-text-theme:   -apple-system, BlinkMacSystemFont, "Segoe UI",
+                       "Microsoft YaHei", "Noto Sans SC", "Microsoft JhengHei",
+                       "Noto Sans TC", "Meiryo", "Yu Gothic", "Noto Sans JP",
+                       "Malgun Gothic", "Noto Sans KR",
+                       "Apple Color Emoji", sans-serif,
+                       "Segoe UI Emoji", "Segoe UI Symbol";
   --font-monospace-theme: "SFMono-Regular", Menlo, Consolas, "PT Mono",
                            "Liberation Mono", Courier, monospace;
 
   /* Base scale */
   --font-text-size:         16px;
-  --line-height-normal:     1.5;
+  --line-height-normal:     1.4;
   --line-height-tight:      1.25;
 
   /* Heading scale — H4/H5/H6 match H3 size (same as Typora notion theme) */
@@ -227,8 +230,8 @@ body {
   line-height:   var(--line-height-normal) !important;
   color:         var(--notion-text-primary) !important;
   background:    var(--notion-bg-primary) !important;
-  -webkit-font-smoothing:  antialiased !important;
-  -moz-osx-font-smoothing: grayscale   !important;
+  -webkit-font-smoothing:  subpixel-antialiased !important;
+  -moz-osx-font-smoothing: auto                !important;
 }
 
 /* ─── Workspace chrome ─── */
