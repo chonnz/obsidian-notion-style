@@ -274,6 +274,9 @@ body {
 .nav-indentation-guide {
   display: none !important;
 }
+.nav-files-container {
+  --nav-indentation-guide-width: 0px !important;
+}
 
 /* ── Common row styles ── */
 .nav-file-title,
@@ -970,6 +973,11 @@ pre .copy-code-button.mod-copied {
 .HyperMD-codeblock-end {
   background:    var(--code-background) !important;
   border-radius: var(--notion-radius-md) !important;
+}
+
+/* ── Hide bracket-pair indent guides inside code blocks ── */
+.markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-indent::before {
+  border-right: none !important;
 }
 
 
