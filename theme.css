@@ -1689,7 +1689,7 @@ pre .copy-code-button.mod-copied {
    18. MODAL / COMMAND PALETTE
    ───────────────────────────────────────────────────────────── */
 
-.modal,
+.modal:not(.mod-settings),
 .prompt {
   background:    var(--notion-bg-primary) !important;
   border:        1px solid var(--notion-border) !important;
@@ -1727,9 +1727,10 @@ pre .copy-code-button.mod-copied {
    19. BUTTONS
    ───────────────────────────────────────────────────────────── */
 
-button.mod-cta {
-  background:    var(--notion-text-primary) !important;
-  color:         var(--notion-bg-primary)   !important;
+.workspace button.mod-cta,
+.modal:not(.mod-settings) button.mod-cta {
+  background:    var(--interactive-accent)  !important;
+  color:         var(--text-on-accent)      !important;
   border:        none !important;
   border-radius: var(--notion-radius-sm)    !important;
   font-weight:   500 !important;
@@ -1738,11 +1739,13 @@ button.mod-cta {
   transition:    opacity 100ms !important;
 }
 
-button.mod-cta:hover {
+.workspace button.mod-cta:hover,
+.modal:not(.mod-settings) button.mod-cta:hover {
   opacity: 0.85 !important;
 }
 
-button:not(.mod-cta) {
+.workspace button:not(.mod-cta),
+.modal:not(.mod-settings) button:not(.mod-cta) {
   border:        1px solid var(--notion-border) !important;
   border-radius: var(--notion-radius-sm) !important;
   background:    transparent !important;
@@ -1752,7 +1755,8 @@ button:not(.mod-cta) {
   transition:    var(--notion-transition) !important;
 }
 
-button:not(.mod-cta):hover {
+.workspace button:not(.mod-cta):hover,
+.modal:not(.mod-settings) button:not(.mod-cta):hover {
   background: var(--notion-bg-hover) !important;
 }
 
@@ -1954,59 +1958,20 @@ button:not(.mod-cta):hover {
 }
 
 
-/* ─────────────────────────────────────────────────────────────
-   27. SETTINGS PANEL
-   ───────────────────────────────────────────────────────────── */
-
-.modal.mod-settings {
-  background: var(--notion-bg-primary) !important;
-}
-
-.vertical-tab-nav-item {
-  border-radius: var(--notion-radius-sm) !important;
-  color:         var(--notion-text-secondary) !important;
-  font-size:     14px !important;
-  transition:    var(--notion-transition) !important;
-}
-
-.vertical-tab-nav-item:hover {
-  background: var(--notion-bg-hover)    !important;
-  color:      var(--notion-text-primary) !important;
-}
-
-.vertical-tab-nav-item.is-active {
-  background: var(--notion-bg-active)   !important;
-  color:      var(--notion-text-primary) !important;
-  font-weight: 500 !important;
-}
-
-.setting-item {
-  border-top: 1px solid var(--notion-border) !important;
-  padding:    16px 0 !important;
-}
-
-.setting-item-name {
-  color:       var(--notion-text-primary) !important;
-  font-weight: 500 !important;
-  font-size:   14px !important;
-}
-
-.setting-item-description {
-  color:     var(--notion-text-secondary) !important;
-  font-size: 0.875em !important;
-}
-
 
 /* ─────────────────────────────────────────────────────────────
    28. INPUT FIELDS
    ───────────────────────────────────────────────────────────── */
 
-input[type="text"],
-input[type="search"],
-input[type="email"],
-input[type="password"],
-textarea,
-select {
+.workspace input[type="text"],
+.workspace input[type="search"],
+.workspace input[type="email"],
+.workspace input[type="password"],
+.workspace textarea,
+.workspace select,
+.modal:not(.mod-settings) input[type="text"],
+.modal:not(.mod-settings) input[type="search"],
+.modal:not(.mod-settings) textarea {
   background:    var(--notion-bg-secondary) !important;
   border:        1px solid var(--notion-border) !important;
   border-radius: var(--notion-radius-sm) !important;
@@ -2017,9 +1982,12 @@ select {
   transition:    border-color 120ms !important;
 }
 
-input[type="text"]:focus,
-input[type="search"]:focus,
-textarea:focus {
+.workspace input[type="text"]:focus,
+.workspace input[type="search"]:focus,
+.workspace textarea:focus,
+.modal:not(.mod-settings) input[type="text"]:focus,
+.modal:not(.mod-settings) input[type="search"]:focus,
+.modal:not(.mod-settings) textarea:focus {
   border-color: var(--notion-text-link) !important;
   outline:      none !important;
   box-shadow:   0 0 0 2px rgba(35, 130, 226, 0.15) !important;
