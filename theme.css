@@ -713,7 +713,8 @@ span.cm-inline-code {
 :is(.markdown-preview-view,.markdown-reading-view,.cm-embed-block) pre.language-cpp::before,
 :is(.markdown-preview-view,.markdown-reading-view,.cm-embed-block) pre.language-c\+\+::before  { content: "C++"; }
 :is(.markdown-preview-view,.markdown-reading-view,.cm-embed-block) pre.language-csharp::before,
-:is(.markdown-preview-view,.markdown-reading-view,.cm-embed-block) pre.language-cs::before     { content: "C#"; }
+:is(.markdown-preview-view,.markdown-reading-view,.cm-embed-block) pre.language-cs::before,
+:is(.markdown-preview-view,.markdown-reading-view,.cm-embed-block) pre.language-c\#::before     { content: "C#"; }
 :is(.markdown-preview-view,.markdown-reading-view,.cm-embed-block) pre.language-css::before    { content: "CSS"; }
 :is(.markdown-preview-view,.markdown-reading-view,.cm-embed-block) pre.language-dart::before   { content: "Dart"; }
 :is(.markdown-preview-view,.markdown-reading-view,.cm-embed-block) pre.language-diff::before   { content: "Diff"; }
@@ -843,95 +844,99 @@ pre .copy-code-button.mod-copied {
 }
 
 /* 1. comments, prolog, doctype, CDATA */
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
+:is(.markdown-preview-view, .markdown-reading-view) .token.comment,
+:is(.markdown-preview-view, .markdown-reading-view) .token.prolog,
+:is(.markdown-preview-view, .markdown-reading-view) .token.doctype,
+:is(.markdown-preview-view, .markdown-reading-view) .token.cdata {
   color:      var(--code-comment) !important;
   font-style: italic              !important;
 }
 
 /* 2. generic punctuation — lowest priority, overridden below */
-.token.punctuation {
+:is(.markdown-preview-view, .markdown-reading-view) .token.punctuation {
   color: var(--code-punctuation) !important;
 }
 
 /* 3. numbers, booleans */
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol {
+:is(.markdown-preview-view, .markdown-reading-view) .token.boolean,
+:is(.markdown-preview-view, .markdown-reading-view) .token.number,
+:is(.markdown-preview-view, .markdown-reading-view) .token.constant,
+:is(.markdown-preview-view, .markdown-reading-view) .token.symbol {
   color: var(--code-value) !important;
 }
 
-/* 4. strings, built-ins */
-.token.string,
-.token.char,
-.token.builtin,
-.token.selector,
-.language-css .token.string,
-.style .token.string {
+/* 4. strings, built-ins — includes C# interpolation-string ($"...") */
+:is(.markdown-preview-view, .markdown-reading-view) .token.string,
+:is(.markdown-preview-view, .markdown-reading-view) .token.char,
+:is(.markdown-preview-view, .markdown-reading-view) .token.builtin,
+:is(.markdown-preview-view, .markdown-reading-view) .token.selector,
+:is(.markdown-preview-view, .markdown-reading-view) .token.interpolation-string,
+:is(.markdown-preview-view, .markdown-reading-view) .language-css .token.string,
+:is(.markdown-preview-view, .markdown-reading-view) .style .token.string {
   color: var(--code-string) !important;
 }
 
-/* 5. keywords */
-.token.keyword,
-.token.atrule {
+/* 5. keywords — includes C# multi-class keywords (keyword.keyword-using etc.) */
+:is(.markdown-preview-view, .markdown-reading-view) .token.keyword,
+:is(.markdown-preview-view, .markdown-reading-view) .token.atrule {
   color:       var(--code-keyword) !important;
   font-weight: 500                 !important;
 }
 
 /* 6. operators, entities, URLs */
-.token.operator,
-.token.entity,
-.token.url {
+:is(.markdown-preview-view, .markdown-reading-view) .token.operator,
+:is(.markdown-preview-view, .markdown-reading-view) .token.entity,
+:is(.markdown-preview-view, .markdown-reading-view) .token.url {
   color: var(--code-operator) !important;
 }
 
 /* 7. functions */
-.token.function {
+:is(.markdown-preview-view, .markdown-reading-view) .token.function {
   color: var(--code-function) !important;
 }
 
-/* 8. class names, important, variables */
-.token.class-name,
-.token.regex,
-.token.important,
-.token.variable {
+/* 8. class names, regex, variables — includes C# type-list (inheritance: Base, IFoo) */
+:is(.markdown-preview-view, .markdown-reading-view) .token.class-name,
+:is(.markdown-preview-view, .markdown-reading-view) .token.type-list,
+:is(.markdown-preview-view, .markdown-reading-view) .token.regex,
+:is(.markdown-preview-view, .markdown-reading-view) .token.important,
+:is(.markdown-preview-view, .markdown-reading-view) .token.variable {
   color: var(--code-important) !important;
 }
 
 /* 9. XML/HTML tags (property included for CSS) */
-.token.property,
-.token.tag {
+:is(.markdown-preview-view, .markdown-reading-view) .token.property,
+:is(.markdown-preview-view, .markdown-reading-view) .token.tag {
   color: var(--code-tag) !important;
 }
 
-/* 10. XML/HTML attribute values — AFTER .token.tag so the outer
-    wrapper's tag color doesn't bleed into attr-value text. */
-.token.attr-value {
+/* 10. XML/HTML attribute values */
+:is(.markdown-preview-view, .markdown-reading-view) .token.attr-value {
   color: var(--code-string) !important;
 }
 
-/* 11. XML/HTML attribute names — AFTER .token.tag so they override
-    the inherited tag color from the parent wrapper span. */
-.token.attr-name {
+/* 11. XML/HTML attribute names */
+:is(.markdown-preview-view, .markdown-reading-view) .token.attr-name {
   color: var(--code-function) !important;
 }
 
-/* 12. Punctuation INSIDE attr-value: =  "  '
-    These are .token.punctuation children of .token.attr-value.
-    Must come AFTER both .token.punctuation and .token.attr-value
-    so the more-specific descendant rule wins. */
-.token.attr-value .token.punctuation,
-.token.attr-value .token.punctuation.attr-equals {
+/* 12. Punctuation INSIDE attr-value */
+:is(.markdown-preview-view, .markdown-reading-view) .token.attr-value .token.punctuation,
+:is(.markdown-preview-view, .markdown-reading-view) .token.attr-value .token.punctuation.attr-equals {
   color: var(--code-punctuation) !important;
 }
 
-/* 13. XML namespace prefixes: xs:  xsi:  xmlns: */
-.token.namespace {
+/* 13. XML namespace prefixes */
+:is(.markdown-preview-view, .markdown-reading-view) .token.namespace {
   color:   var(--code-tag) !important;
   opacity: 0.8             !important;
+}
+
+/* 14. C# preprocessor directives (#if, #define, #pragma …) */
+:is(.markdown-preview-view, .markdown-reading-view) .token.preprocessor,
+:is(.markdown-preview-view, .markdown-reading-view) .token.directive,
+:is(.markdown-preview-view, .markdown-reading-view) .token.directive-hash {
+  color: var(--code-keyword) !important;
 }
 
 /* ── CM6 tokens (editor / live-preview) ──
