@@ -8,13 +8,13 @@ A full Notion visual overhaul for Obsidian. Every part of the interface — typo
 
 light theme:
 
-![light](light.png)
+![light](light-theme.png)
 
 
 
 dark theme:
 
-![dark](dark.png)
+![dark](dark-theme.png)
 
 
 
