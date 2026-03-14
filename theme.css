@@ -31,14 +31,15 @@ body.theme-light {
   /* ── Borders / Dividers ── */
   --notion-border:           rgba(55, 53, 47, 0.16);
   --notion-border-strong:    rgba(55, 53, 47, 0.30);
+  --blockquote-border-thickness: 0px;
 
   /* ── Code ── */
-  --notion-code-bg:          rgba(135, 131, 120, 0.07);
-  --notion-code-border:      rgba(135, 131, 120, 0.07); /* border = bg, effectively invisible */
+  --notion-code-bg:          #ededeb;
+  --notion-code-border:      #ededeb;
   --notion-code-text:        #eb5757;
-  --notion-codeblock-bg:     rgba(135, 131, 120, 0.07);
+  --notion-codeblock-bg:     #f7f6f3;
   --notion-codeblock-text:   #37352f;
-  --notion-codeblock-border: rgba(135, 131, 120, 0.07); /* border = bg */
+  --notion-codeblock-border: #f7f6f3;
 
   /* ── Callout palette ── */
   --notion-callout-info-bg:      #e7f3ff;
@@ -77,19 +78,19 @@ body.theme-light {
   /* ── Syntax highlighting (Obsidian native variables)
      These are read by BOTH the CM6 editor and the Prism reading view,
      so setting them once gives consistent colors everywhere.
-     Palette: GitHub Light — same as Notion light mode.           ── */
-  --code-background:   rgba(135, 131, 120, 0.07);
-  --code-normal:       #24292f;
-  --code-comment:      #6e7781;
-  --code-function:     #8250df;
-  --code-important:    #cf222e;
-  --code-keyword:      #cf222e;
-  --code-operator:     #cf222e;
-  --code-property:     #0550ae;
-  --code-punctuation:  #24292f;
-  --code-string:       #0a3069;
-  --code-tag:          #116329;
-  --code-value:        #0550ae;
+     Palette: Notion Style Light (via Typora notion-style-light theme). ── */
+  --code-background:   #f7f6f3;
+  --code-normal:       #37352f;   /* body text — same as notion text */
+  --code-comment:      #8d8d8d;   /* gray */
+  --code-function:     #d63253;   /* red-pink  — functions / defs */
+  --code-important:    #990055;   /* deep pink — class names / regex */
+  --code-keyword:      #006fd0;   /* blue      — keywords */
+  --code-operator:     #9a6e3b;   /* gold-brown — operators */
+  --code-property:     #990055;   /* deep pink — properties / attributes */
+  --code-punctuation:  #37352f;   /* same as normal */
+  --code-string:       #579c26;   /* green     — strings */
+  --code-tag:          #990055;   /* deep pink — HTML/XML tags */
+  --code-value:        #990055;   /* deep pink — numbers / atoms */
 }
 
 .theme-dark,
@@ -112,14 +113,15 @@ body.theme-dark {
   /* ── Borders / Dividers ── */
   --notion-border:           rgba(255, 255, 255, 0.13);
   --notion-border-strong:    rgba(255, 255, 255, 0.22);
+  --blockquote-border-thickness: 0px;
 
   /* ── Code ── */
   --notion-code-bg:          rgba(255, 255, 255, 0.06);
   --notion-code-border:      rgba(255, 255, 255, 0.06); /* border = bg */
   --notion-code-text:        #ff7b72;
-  --notion-codeblock-bg:     #232829;
+  --notion-codeblock-bg:     #202020;
   --notion-codeblock-text:   rgba(255, 255, 255, 0.81);
-  --notion-codeblock-border: #232829;                  /* border = bg */
+  --notion-codeblock-border: #202020;
 
   /* ── Callout palette ── */
   --notion-callout-info-bg:      rgba(83, 145, 210, 0.12);
@@ -156,19 +158,19 @@ body.theme-dark {
   --notion-scrollbar-thumb:  rgba(255, 255, 255, 0.15);
 
   /* ── Syntax highlighting (Obsidian native variables)
-     Palette: GitHub Dark — same as Notion dark mode.             ── */
-  --code-background:   #232829;
-  --code-normal:       rgba(255, 255, 255, 0.81);
-  --code-comment:      #8b949e;
-  --code-function:     #d2a8ff;
-  --code-important:    #ff7b72;
-  --code-keyword:      #ff7b72;
-  --code-operator:     #ff7b72;
-  --code-property:     #79c0ff;
-  --code-punctuation:  #e6edf3;
-  --code-string:       #a5d6ff;
-  --code-tag:          #7ee787;
-  --code-value:        #79c0ff;
+     Palette: Notion Style Dark (via Typora notion-style-dark theme). ── */
+  --code-background:   #202020;
+  --code-normal:       #dcdcdc;   /* off-white body */
+  --code-comment:      #998066;   /* muted brown */
+  --code-function:     #ecec93;   /* yellow      — functions / defs */
+  --code-important:    #e06c75;   /* soft red    — class names / regex */
+  --code-keyword:      #67a2cc;   /* blue        — keywords */
+  --code-operator:     #f5b73d;   /* amber       — operators */
+  --code-property:     #dcdcdc;   /* same as normal — properties */
+  --code-punctuation:  #dcdcdc;   /* same as normal */
+  --code-string:       #bde051;   /* green       — strings */
+  --code-tag:          #e06c75;   /* soft red    — HTML/XML tags */
+  --code-value:        #e06c75;   /* soft red    — numbers / atoms */
 }
 
 
@@ -189,13 +191,13 @@ body.theme-dark {
   --line-height-normal:     1.5;
   --line-height-tight:      1.25;
 
-  /* Heading scale — each level shifted down one step */
-  --h1-size: 1.875em;  /* 30px (was 40px) */
-  --h2-size: 1.5em;    /* 24px (was 30px) */
-  --h3-size: 1.25em;   /* 20px (was 24px) */
-  --h4-size: 1.125em;  /* 18px (was 20px) */
-  --h5-size: 1em;      /* 16px (was 18px) */
-  --h6-size: 0.875em;  /* 14px (was 16px) */
+  /* Heading scale — H4/H5/H6 match H3 size (same as Typora notion theme) */
+  --h1-size: 1.875em;  /* 30px */
+  --h2-size: 1.5em;    /* 24px */
+  --h3-size: 1.25em;   /* 20px */
+  --h4-size: 1.25em;   /* 20px — same as H3 */
+  --h5-size: 1.25em;   /* 20px — same as H3 */
+  --h6-size: 1.25em;   /* 20px — same as H3 */
 
   /* Spacing */
   --notion-content-width:   1080px;  /* +20% (was 900px) */
@@ -242,7 +244,7 @@ body {
 
 
 /* ─────────────────────────────────────────────────────────────
-   4. SIDEBAR / NAVIGATION
+   4. SIDEBAR / NAVIGATION  (Notion-style file tree)
    ───────────────────────────────────────────────────────────── */
 
 .nav-folder,
@@ -260,13 +262,32 @@ body {
   background: var(--notion-bg-sidebar) !important;
 }
 
+/* ── File tree container ── */
+.nav-files-container {
+  padding: 4px 8px 4px 16px !important;
+}
+
+/* ── Hide Obsidian's native indentation guide lines ── */
+.nav-indentation-guide {
+  display: none !important;
+}
+
+/* ── Common row styles ── */
 .nav-file-title,
 .nav-folder-title {
-  color:         var(--notion-text-primary) !important;
-  font-size:     14px !important;
-  border-radius: var(--notion-radius-sm) !important;
-  transition:    var(--notion-transition) !important;
-  padding:       2px 8px !important;
+  display:        flex !important;
+  align-items:    center !important;
+  min-height:     30px !important;
+  color:          var(--notion-text-primary) !important;
+  font-size:      14px !important;
+  font-weight:    400 !important;
+  line-height:    1.3 !important;
+  border-radius:  4px !important;
+  transition:     background 80ms ease, color 80ms ease !important;
+  padding:        4px 6px 4px 8px !important;
+  margin:         1px 0 !important;
+  cursor:         pointer !important;
+  user-select:    none !important;
 }
 
 .nav-file-title:hover,
@@ -275,25 +296,97 @@ body {
   color:      var(--notion-text-primary) !important;
 }
 
-.nav-file-title.is-active,
-.nav-folder-title.is-active {
-  background: var(--notion-bg-active) !important;
+.nav-file-title.is-active {
+  background:  var(--notion-bg-active) !important;
   font-weight: 500 !important;
 }
 
+.nav-folder-title.is-active {
+  background: var(--notion-bg-hover) !important;
+}
+
+/* ── Folder title content ── */
 .nav-folder-title-content {
   font-weight: 500 !important;
+  font-size:   14px !important;
+  color:       var(--notion-text-primary) !important;
 }
 
-/* Collapse chevrons */
+/* File title content */
+.nav-file-title-content {
+  font-size:   14px !important;
+  font-weight: 400 !important;
+  color:       var(--notion-text-primary) !important;
+  white-space: nowrap !important;
+  overflow:    hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* ── Collapse chevron ── */
 .nav-folder-collapse-indicator {
-  color: var(--notion-text-tertiary) !important;
+  display:         flex !important;
+  align-items:     center !important;
+  justify-content: center !important;
+  width:           20px !important;
+  height:          20px !important;
+  flex-shrink:     0 !important;
+  color:           var(--notion-text-tertiary) !important;
+  margin-right:    2px !important;
+  border-radius:   3px !important;
 }
 
-/* Vault title / workspace header */
+.nav-folder-collapse-indicator svg {
+  width:  14px !important;
+  height: 14px !important;
+  stroke: currentColor !important;
+}
+
+/* ── Page emoji icon for files ── */
+.nav-file-title::before {
+  content:      "📄";
+  font-size:    13px !important;
+  margin-right: 6px !important;
+  flex-shrink:  0 !important;
+  opacity:      0.6 !important;
+  line-height:  1 !important;
+}
+
+.nav-file-title.is-active::before {
+  opacity: 1 !important;
+}
+
+/* ── Section headings (Bookmarks, Files, etc.) ── */
+.nav-header {
+  padding:     8px 8px 4px !important;
+}
+
+.nav-header .nav-action-button {
+  background:  transparent !important;
+  color:       var(--notion-text-tertiary) !important;
+  border:      none !important;
+  border-radius: 4px !important;
+  padding:     4px !important;
+  transition:  background 80ms ease !important;
+}
+
+.nav-header .nav-action-button:hover {
+  background: var(--notion-bg-hover) !important;
+  color:      var(--notion-text-secondary) !important;
+}
+
+/* ── Workspace header / vault title ── */
 .workspace-drawer.mod-left .workspace-tabs,
 .workspace-drawer.mod-right .workspace-tabs {
   background: var(--notion-bg-sidebar) !important;
+}
+
+/* ── Empty folder label ── */
+.nav-folder-children:empty::after {
+  content:   "No pages inside";
+  display:   block !important;
+  padding:   4px 8px !important;
+  font-size: 12px !important;
+  color:     var(--notion-text-placeholder) !important;
 }
 
 
@@ -380,70 +473,76 @@ td .cm-editor .cm-content {
 /* Reading view */
 .markdown-preview-view h1,
 .markdown-reading-view h1 {
-  font-size:     var(--h1-size)    !important;
-  font-weight:   700               !important;
-  line-height:   1.2               !important;
-  color:         var(--notion-text-primary) !important;
-  margin-top:    2rem              !important;
-  margin-bottom: 4px               !important;
-  letter-spacing: -0.02em          !important;
+  font-size:      var(--h1-size)            !important;
+  font-weight:    700                       !important;
+  line-height:    1.2                       !important;
+  color:          var(--notion-text-primary) !important;
+  margin-top:     3rem                      !important;
+  margin-bottom:  1.5rem                    !important;
+  letter-spacing: -0.02em                   !important;
 }
 
 .markdown-preview-view h2,
 .markdown-reading-view h2 {
-  font-size:     var(--h2-size)    !important;
-  font-weight:   600               !important;
-  line-height:   1.3               !important;
-  color:         var(--notion-text-primary) !important;
-  margin-top:    1.8rem            !important;
-  margin-bottom: 4px               !important;
-  letter-spacing: -0.01em          !important;
+  font-size:      var(--h2-size)            !important;
+  font-weight:    700                       !important;
+  line-height:    1.3                       !important;
+  color:          var(--notion-text-primary) !important;
+  margin-top:     1.5rem                    !important;
+  margin-bottom:  1.5rem                    !important;
+  letter-spacing: -0.01em                   !important;
 }
 
 .markdown-preview-view h3,
 .markdown-reading-view h3 {
-  font-size:     var(--h3-size)    !important;
-  font-weight:   600               !important;
-  line-height:   1.3               !important;
+  font-size:     var(--h3-size)            !important;
+  font-weight:   700                       !important;
+  line-height:   1.3                       !important;
   color:         var(--notion-text-primary) !important;
-  margin-top:    1.5rem            !important;
-  margin-bottom: 2px               !important;
+  margin-top:    1.5rem                    !important;
+  margin-bottom: 1rem                      !important;
 }
 
 .markdown-preview-view h4,
-.markdown-reading-view h4 {
-  font-size:     var(--h4-size)    !important;
-  font-weight:   600               !important;
-  color:         var(--notion-text-primary) !important;
-  margin-top:    1.3rem            !important;
-  margin-bottom: 2px               !important;
-}
-
+.markdown-reading-view h4,
 .markdown-preview-view h5,
-.markdown-reading-view h5 {
-  font-size:     var(--h5-size)    !important;
-  font-weight:   600               !important;
-  color:         var(--notion-text-secondary) !important;
-  margin-top:    1.1rem            !important;
-  margin-bottom: 4px               !important;
-}
-
+.markdown-reading-view h5,
 .markdown-preview-view h6,
 .markdown-reading-view h6 {
-  font-size:     var(--h6-size)    !important;
-  font-weight:   600               !important;
-  color:         var(--notion-text-secondary) !important;
-  margin-top:    1rem              !important;
-  margin-bottom: 4px               !important;
+  font-size:     var(--h4-size)            !important;  /* all same as H3 */
+  font-weight:   700                       !important;
+  line-height:   1.3                       !important;
+  color:         var(--notion-text-primary) !important;
+  margin-top:    1rem                      !important;
+  margin-bottom: 0                         !important;
 }
 
 /* Live-preview editor headings — kept in sync with reading-view h1~h6 */
-.cm-header-1 { font-size: var(--h1-size) !important; font-weight: 700 !important; line-height: 1.2  !important; letter-spacing: -0.02em !important; color: var(--notion-text-primary)   !important; }
-.cm-header-2 { font-size: var(--h2-size) !important; font-weight: 600 !important; line-height: 1.3  !important; letter-spacing: -0.01em !important; color: var(--notion-text-primary)   !important; }
-.cm-header-3 { font-size: var(--h3-size) !important; font-weight: 600 !important; line-height: 1.3  !important;                              color: var(--notion-text-primary)   !important; }
-.cm-header-4 { font-size: var(--h4-size) !important; font-weight: 600 !important;                                                            color: var(--notion-text-primary)   !important; }
-.cm-header-5 { font-size: var(--h5-size) !important; font-weight: 600 !important;                                                            color: var(--notion-text-secondary) !important; }
-.cm-header-6 { font-size: var(--h6-size) !important; font-weight: 600 !important;                                                            color: var(--notion-text-secondary) !important; }
+.cm-header-1 { font-size: var(--h1-size) !important; font-weight: 700 !important; line-height: 1.2 !important; letter-spacing: -0.02em !important; color: var(--notion-text-primary) !important; }
+.cm-header-2 { font-size: var(--h2-size) !important; font-weight: 700 !important; line-height: 1.3 !important; letter-spacing: -0.01em !important; color: var(--notion-text-primary) !important; }
+.cm-header-3 { font-size: var(--h3-size) !important; font-weight: 700 !important; line-height: 1.3 !important;                             color: var(--notion-text-primary) !important; }
+.cm-header-4 { font-size: var(--h4-size) !important; font-weight: 700 !important; line-height: 1.3 !important;                             color: var(--notion-text-primary) !important; }
+.cm-header-5 { font-size: var(--h5-size) !important; font-weight: 700 !important; line-height: 1.3 !important;                             color: var(--notion-text-primary) !important; }
+.cm-header-6 { font-size: var(--h6-size) !important; font-weight: 700 !important; line-height: 1.3 !important;                             color: var(--notion-text-primary) !important; }
+
+/* Live-preview heading line spacing.
+   Only padding-top is used — padding does NOT collapse like margin, so
+   using both top + bottom would double the gap between adjacent headings.
+   The visual gap BELOW a heading is provided by the next element's padding-top. */
+.cm-line:has(.cm-header-1) { padding-top: 3rem   !important; padding-bottom: 0 !important; }
+.cm-line:has(.cm-header-2) { padding-top: 1.5rem !important; padding-bottom: 0 !important; }
+.cm-line:has(.cm-header-3) { padding-top: 1.5rem !important; padding-bottom: 0 !important; }
+.cm-line:has(.cm-header-4),
+.cm-line:has(.cm-header-5),
+.cm-line:has(.cm-header-6) { padding-top: 1rem   !important; padding-bottom: 0 !important; }
+
+/* Exception: no extra padding inside embed blocks or table cells */
+.cm-embed-block .cm-line:has(.cm-header-1),
+.cm-embed-block .cm-line:has(.cm-header-2),
+.cm-embed-block .cm-line:has(.cm-header-3),
+.cm-embed-block .cm-line:has(.cm-header-4),
+.cm-embed-block .cm-line:has(.cm-header-5),
+.cm-embed-block .cm-line:has(.cm-header-6) { padding-top: 0 !important; padding-bottom: 0 !important; }
 
 
 /* ─────────────────────────────────────────────────────────────
@@ -452,10 +551,10 @@ td .cm-editor .cm-content {
 
 .markdown-preview-view p,
 .markdown-reading-view p {
-  line-height:   1.6               !important;
+  line-height:   1.5               !important;
   color:         var(--notion-text-primary) !important;
-  margin-top:    0                 !important;
-  margin-bottom: 0.75em            !important;
+  margin-top:    0.9em             !important;
+  margin-bottom: 0.9em             !important;
 }
 
 /* Strong / Bold */
@@ -534,12 +633,13 @@ td .cm-editor .cm-content {
 /* Editor inline code */
 .cm-inline-code .cm-hmd-codeblock,
 span.cm-inline-code {
-  background:    var(--notion-code-bg)   !important;
-  color:         var(--notion-code-text) !important;
-  border-radius: var(--notion-radius-sm) !important;
-  font-family:   var(--font-monospace-theme) !important;
-  font-size:     0.875em !important;
-  padding:       0.1em 0.35em !important;
+  background:    var(--notion-code-bg)                 !important;
+  color:         var(--notion-code-text)               !important;
+  border:        1px solid var(--notion-code-border)   !important;
+  border-radius: var(--notion-radius-sm)               !important;
+  font-family:   var(--font-monospace-theme)           !important;
+  font-size:     0.875em                               !important;
+  padding:       0.1em 0.35em                          !important;
 }
 
 
@@ -878,9 +978,15 @@ pre .copy-code-button.mod-copied {
 .markdown-preview-view ul > li,
 .markdown-reading-view ul > li {
   position:    relative !important;
-  line-height: 1.6      !important;
+  line-height: 1.5      !important;
   margin:      2px 0    !important;
   padding-left: 4px     !important;
+}
+
+/* Hide Obsidian's native .list-bullet span to avoid double-bullet ghost */
+.markdown-preview-view ul > li > .list-bullet,
+.markdown-reading-view ul > li > .list-bullet {
+  display: none !important;
 }
 
 /* Notion's filled-circle bullet — level 1 */
@@ -919,11 +1025,23 @@ pre .copy-code-button.mod-copied {
 
 .markdown-preview-view ol > li,
 .markdown-reading-view ol > li {
-  line-height:  1.6    !important;
+  line-height:  1.5    !important;
   margin:       2px 0  !important;
   padding-left: 4px    !important;
   list-style:   decimal !important;
   color:        var(--notion-text-primary) !important;
+}
+
+/* Level 2 ordered — lower-alpha (a. b. c.) */
+.markdown-preview-view ol ol > li,
+.markdown-reading-view ol ol > li {
+  list-style: lower-alpha !important;
+}
+
+/* Level 3 ordered — lower-roman (i. ii. iii.) */
+.markdown-preview-view ol ol ol > li,
+.markdown-reading-view ol ol ol > li {
+  list-style: lower-roman !important;
 }
 
 /* ── Nested indent ── */
@@ -934,6 +1052,115 @@ pre .copy-code-button.mod-copied {
   margin-top:    2px !important;
   margin-bottom: 0   !important;
 }
+
+/* ── Editor (live-preview) list rules ── */
+
+/* Unordered — hide native marker, use ::before bullets */
+.cm-content ul {
+  list-style:   none    !important;
+  padding-left: 24px    !important;
+  margin:       4px 0   !important;
+}
+.cm-content ul > li {
+  position:     relative !important;
+  line-height:  1.5      !important;
+  margin:       2px 0    !important;
+  padding-left: 4px      !important;
+}
+.cm-content ul > li > .list-bullet            { display: none !important; }
+.cm-content ul > li::before                   { content: "•";  position: absolute; left: -16px; top: 0; color: var(--notion-text-primary); font-size: 1em; line-height: 1.5; }
+.cm-content ul ul > li::before                { content: "◦";  color: var(--notion-text-secondary) !important; }
+.cm-content ul ul ul > li::before             { content: "▪";  font-size: 0.7em !important; top: 0.15em !important; }
+
+/* Ordered — level 1 decimal, level 2 lower-alpha, level 3 lower-roman */
+.cm-content ol {
+  padding-left: 24px  !important;
+  margin:       4px 0 !important;
+}
+.cm-content ol > li {
+  line-height:  1.5     !important;
+  margin:       2px 0   !important;
+  padding-left: 4px     !important;
+  list-style:   decimal !important;
+  color:        var(--notion-text-primary) !important;
+}
+.cm-content ol ol > li    { list-style: lower-alpha !important; }
+.cm-content ol ol ol > li { list-style: lower-roman !important; }
+
+/* Nested spacing */
+.cm-content li ul,
+.cm-content li ol { margin-top: 2px !important; margin-bottom: 0 !important; }
+
+/* ── Task list — editor (extends the same rules as reading view) ── */
+.markdown-source-view .task-list-item {
+  list-style:   none !important;
+  padding-left: 4px  !important;
+}
+.markdown-source-view .task-list-item::before { display: none !important; }
+
+/* Checkbox appearance — editor */
+.markdown-source-view input[type="checkbox"] {
+  appearance:         none         !important;
+  -webkit-appearance: none         !important;
+  width:              16px         !important;
+  height:             16px         !important;
+  border:             1.5px solid var(--notion-border-strong) !important;
+  border-radius:      3px          !important;
+  margin-right:       6px          !important;
+  vertical-align:     -3px         !important;
+  cursor:             pointer      !important;
+  background:         transparent  !important;
+  transition:         background 120ms, border-color 120ms !important;
+  flex-shrink:        0            !important;
+}
+.markdown-source-view input[type="checkbox"]:checked {
+  background:       #35aaff !important;
+  border-color:     #35aaff !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9' viewBox='0 0 12 9'%3E%3Cpath fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' d='M1 4.5L4.5 8L11 1'/%3E%3C/svg%3E") !important;
+  background-repeat:   no-repeat !important;
+  background-position: center    !important;
+}
+/* Strikethrough text on checked task items */
+.markdown-source-view .task-list-item-checkbox:checked + * {
+  opacity:         0.6           !important;
+  text-decoration: line-through  !important;
+  color:           var(--notion-text-tertiary) !important;
+}
+
+/* ── Blockquote in editor (HyperMD) ── */
+.cm-line.HyperMD-quote-1,
+.cm-line.HyperMD-quote-2,
+.cm-line.HyperMD-quote-3 {
+  border-left: 3px solid var(--notion-text-tertiary) !important;
+  margin:      2px 0 !important;
+  color:       var(--notion-text-primary) !important;
+  font-style:  normal !important;
+}
+/* The `>` marker: keep it the same color as body text */
+.cm-line.HyperMD-quote-1 .cm-quote,
+.cm-line.HyperMD-quote-2 .cm-quote,
+.cm-line.HyperMD-quote-3 .cm-quote {
+  color: var(--notion-text-primary) !important;
+}
+
+/* ── Horizontal rule in editor (HyperMD) ── */
+.cm-line.HyperMD-hr {
+  border:     none !important;
+  border-top: 1px solid var(--notion-border) !important;
+  margin:     24px 0 !important;
+  height:     1px    !important;
+  overflow:   hidden !important;
+  color:      transparent !important;
+}
+.cm-line.HyperMD-hr .cm-hr {
+  opacity: 0 !important;
+}
+
+/* ── Editor base line-height (ensures consistent body text) ── */
+.cm-editor .cm-content {
+  line-height: 1.5 !important;
+}
+
 
 /* ── Task / Checkbox lists ── */
 .markdown-preview-view .task-list-item,
@@ -986,18 +1213,18 @@ pre .copy-code-button.mod-copied {
 
 .markdown-preview-view blockquote,
 .markdown-reading-view blockquote {
-  border-left:   3px solid var(--notion-border-strong) !important;
+  border-left:   3px solid var(--notion-text-tertiary) !important;
   background:    transparent !important;
   margin:        8px 0 !important;
   padding:       4px 16px !important;
-  color:         var(--notion-text-secondary) !important;
+  color:         var(--notion-text-primary) !important;
   font-style:    normal !important;
   border-radius: 0 !important;
 }
 
 .markdown-preview-view blockquote p,
 .markdown-reading-view blockquote p {
-  color: var(--notion-text-secondary) !important;
+  color: var(--notion-text-primary) !important;
 }
 
 
@@ -1050,13 +1277,15 @@ pre .copy-code-button.mod-copied {
 .callout[data-callout="success"],
 .callout[data-callout="abstract"],
 .callout[data-callout="check"],
-.callout[data-callout="done"] {
+.callout[data-callout="done"],
+.callout[data-callout="important"] {
   background:        var(--notion-callout-tip-bg) !important;
   border-left-color: var(--notion-callout-tip-border) !important;
   color:             var(--notion-callout-tip-text) !important;
 }
 .callout[data-callout="tip"] .callout-title-inner,
-.callout[data-callout="success"] .callout-title-inner {
+.callout[data-callout="success"] .callout-title-inner,
+.callout[data-callout="important"] .callout-title-inner {
   color: var(--notion-callout-tip-border) !important;
 }
 
@@ -1148,7 +1377,7 @@ pre .copy-code-button.mod-copied {
   border-top:    1px solid var(--notion-table-border) !important; /* outer top */
   border-bottom: 1px solid var(--notion-table-border) !important;
   border-right:  1px solid var(--notion-table-border) !important;
-  text-align:    left !important;
+  /* text-align intentionally omitted — lets Markdown column alignment apply */
 }
 
 /* First cell in every row carries the outer left border */
@@ -1167,6 +1396,7 @@ pre .copy-code-button.mod-copied {
   color:          var(--notion-text-primary) !important;
   vertical-align: top !important;
   line-height:    1.5 !important;
+  /* text-align intentionally omitted — lets Markdown column alignment (:-:, --:) apply */
 }
 
 .markdown-preview-view tr:hover td,
@@ -1197,7 +1427,7 @@ pre .copy-code-button.mod-copied {
   border-collapse: collapse !important;
   border-spacing:  0 !important;
   font-size:       0.9375em !important;
-  margin:          16px 0 !important;
+  margin:          0 0 16px !important; /* top:0 — the mandatory blank line above already provides spacing */
   border:          none !important; /* outer border carried by cells below */
 }
 
@@ -1210,11 +1440,11 @@ pre .copy-code-button.mod-copied {
   font-size:      0.9375em !important;
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important;
-  padding:        8px 12px !important;   /* padding on the cell itself */
-  border-top:     1px solid var(--notion-table-border) !important; /* outer top */
+  padding:        8px 12px !important;
+  border-top:     1px solid var(--notion-table-border) !important;
   border-bottom:  1px solid var(--notion-table-border) !important;
   border-right:   1px solid var(--notion-table-border) !important;
-  text-align:     left !important;
+  /* text-align omitted — lets Markdown alignment propagate */
   vertical-align: top !important;
   box-sizing:     border-box !important;
 }
@@ -1230,12 +1460,12 @@ pre .copy-code-button.mod-copied {
 /* ── Data cells ── */
 .cm-embed-block.cm-table-widget td,
 .cm-table-widget td {
-  padding:        8px 12px !important;   /* padding on the cell itself */
+  padding:        8px 12px !important;
   border-bottom:  1px solid var(--notion-table-border) !important;
   border-right:   1px solid var(--notion-table-border) !important;
   color:          var(--notion-text-primary) !important;
   vertical-align: top !important;
-  text-align:     left !important;
+  /* text-align omitted — lets Markdown alignment propagate */
   box-sizing:     border-box !important;
   line-height:    1.5 !important;
 }
@@ -1248,23 +1478,23 @@ pre .copy-code-button.mod-copied {
 .cm-table-widget th > * {
   padding:    0 !important;
   margin:     0 !important;
-  text-align: left !important;
+  text-align: inherit !important; /* inherit from parent td so column alignment works */
 }
 
 /* ── Obsidian table-editor classes (internal table editor) ── */
 .table-editor-table td,
 .table-editor-table th {
   padding:        8px 12px !important;
-  text-align:     left !important;
   vertical-align: top !important;
   box-sizing:     border-box !important;
+  /* text-align omitted — Markdown alignment propagates via inline style */
 }
 
 .table-editor-cell,
 .table-editor-cell-content {
   padding:    0 !important;
   margin:     0 !important;
-  text-align: left !important;
+  text-align: inherit !important;
 }
 
 /* ── Textarea / input inside any table cell ──
@@ -1282,7 +1512,7 @@ pre .copy-code-button.mod-copied {
   box-shadow:  none !important;
   background:  transparent !important;
   resize:      none !important;
-  text-align:  left !important;
+  text-align:  inherit !important; /* inherit column alignment from td */
   vertical-align: top !important;
   font-family: var(--font-text-theme) !important;
   font-size:   inherit !important;
@@ -1827,8 +2057,9 @@ textarea:focus {
   /* Stack nav full width */
   .nav-file-title,
   .nav-folder-title {
-    font-size: 15px !important;
-    padding:   4px 10px !important;
+    font-size:  15px !important;
+    min-height: 34px !important;
+    padding:    5px 10px 5px 10px !important;
   }
 
   table {
@@ -1916,7 +2147,7 @@ h6:focus, h6:focus-visible,
   color: var(--notion-text-tertiary) !important;
 }
 
-/* Folder icon color */
+/* Folder collapse indicator SVG color */
 .nav-folder-collapse-indicator svg {
   stroke: var(--notion-text-tertiary) !important;
 }

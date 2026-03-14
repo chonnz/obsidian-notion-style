@@ -1,177 +1,229 @@
 # Notion Style — Obsidian Theme
 
-将 Obsidian 的界面全面改造为 Notion 风格的主题，支持亮色/暗色模式切换，兼容桌面端与移动端。
+A full Notion visual overhaul for Obsidian. Every part of the interface — typography, sidebar, code blocks, callouts, tables, and interactive elements — is redesigned to match Notion's clean, minimal aesthetic. Supports light and dark mode, and is optimized for both desktop and mobile.
 
 ---
 
-## 视觉效果预览
+## Screenshots
 
-| 元素 | Notion 风格表现 |
-|------|----------------|
-| **标题** | H1 40px → H6 16px 字体梯度，加粗层级清晰 |
-| **代码块** | 灰色背景 `#f7f6f3`，3px 圆角，等宽字体 |
-| **内联代码** | 浅灰背景 + 红色文字，紧凑圆角 |
-| **列表** | 三级嵌套符号（● ◦ ▪），任务列表蓝色复选框 |
-| **Callout** | 蓝/绿/黄/红四色系，左侧彩色边框 |
-| **表格** | 灰色表头，细边框，hover 高亮行 |
-| **页面边距** | 桌面端 96px，移动端自动收窄 |
+light theme:
+
+![light](light.png)
+
+
+
+dark theme:
+
+![dark](dark.png)
+
+
+
+## Features
+
+### Typography
+
+- **Font stack** — matches Notion exactly: `ui-sans-serif`, `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, `Helvetica`, `Arial`
+- **Heading scale** — six levels with a clear size gradient (H1 `1.875em` → H6 `0.875em`), bold weights, and tight letter-spacing on H1/H2
+- **Body text** — 16px base, 1.6 line-height, optimized with `-webkit-font-smoothing: antialiased`
+- **Inline code** — soft gray background with red text (`#eb5757` light / `#ff7b72` dark), compact border radius
+- **Monospace font** — `SFMono-Regular`, Menlo, Consolas fallback stack
+
+### Page Layout
+
+- **Content width** — 1080px (wider than the default Obsidian reading line)
+- **Page padding** — 96px horizontal on desktop, automatically collapses on smaller screens
+- **Editor and reading view are in sync** — live-preview headings match reading-view headings pixel-for-pixel
+
+### Sidebar & File Tree
+
+- Notion-style file tree with generous row height (30px min) and subtle hover/active states
+- Page icon (📄) prefix on file items
+- Original Obsidian collapse chevron retained for folders
+
+### Code Blocks
+
+- **Syntax highlighting** — GitHub Light palette in light mode, GitHub Dark palette in dark mode (same as Notion)
+- Languages with full token coloring: keywords, strings, functions, properties, operators, comments, tags, punctuation
+- Block background uses a soft warm gray (`rgba(135, 131, 120, 0.07)`) in light mode and `#232829` in dark mode
+- Language label displayed in the top-right corner of each block
+- Copy button on hover
+
+### Callouts
+
+Five color families with colored left border, tinted background, and styled title:
+
+| Family | Keywords | Color |
+|:------:|----------|-------|
+| Info | `info`, `note` | Blue |
+| Tip | `tip`, `success`, `abstract`, `check`, `done` | Green |
+| Warning | `warning`, `caution`, `attention`, `question`, `help`, `faq` | Yellow |
+| Danger | `danger`, `error`, `bug`, `failure`, `fail`, `missing` | Red |
+| Quote | `quote`, `cite`, `example` | Gray |
+
+Collapsible callouts (`[!note]-`) are supported with a smooth fold animation.
+
+### Tables
+
+- Gray header row with light background
+- Subtle row hover highlight
+- Clean borders matching Notion's table style
+
+### Lists
+
+- Unordered lists: three-level bullet symbols (`●`, `◦`, `▪`)
+- Ordered lists: consistent decimal style with proper indent
+- Task lists: Notion-blue checkbox with strikethrough on completed items
+- Nested list spacing preserved
+
+### Other Elements
+
+- **Tags** — pill-shaped with soft gray background
+- **Blockquotes** — left border + muted text
+- **Dividers** (`---`) — thin, low-contrast separator
+- **Front-matter / Properties panel** — styled to blend with the page background
+- **Inline page title** — large, bold, matches Notion's page header
+- **Graph view** — dark nodes on matching background
+- **Command palette & modals** — consistent rounded corners and border
+- **Scrollbars** — thin, minimal, auto-hidden
+- **Selection highlight** — subtle, non-distracting
+
+### Dark Mode
+
+Fully styled dark theme using Notion's latest dark palette:
+
+- Unified background for sidebar and content (`#191919`)
+- Dimmed text hierarchy: `rgba(255,255,255,0.81)` → `0.50` → `0.35`
+- GitHub Dark syntax palette for code blocks
+- All callout colors adapted for dark backgrounds
 
 ---
 
-## 文件结构
+## Installation
 
-```
-notion-style/
-├── manifest.json   # 主题元数据（Obsidian 必需）
-├── theme.css       # 全量样式文件（含颜色变量 + 所有组件）
-└── README.md       # 本文件
-```
+**Via Community Themes (recommended)**
 
----
+1. Open Obsidian → `Settings` → `Appearance`
+2. Click `Manage` → `Browse Community Themes`
+3. Search for **Notion Style** and install
+4. Enable the theme and enjoy the new writing experience
 
-## 安装方法
+**Manual installation**
 
-### 方法一：手动安装（推荐）
-
-1. 找到你的 Obsidian Vault 目录。
-2. 进入 `<你的Vault>/.obsidian/themes/` 文件夹（若不存在请手动创建）。
-3. 在 `themes/` 目录下新建一个文件夹，命名为 `Notion Style`。
-4. 将 `manifest.json` 和 `theme.css` 两个文件复制进去。
-
-   最终结构如下：
-   ```
-   <你的Vault>/
-   └── .obsidian/
-       └── themes/
-           └── Notion Style/
-               ├── manifest.json
-               └── theme.css
-   ```
-
-5. 打开 Obsidian → **设置 → 外观 → 主题**，在列表中选择 **Notion Style**，点击应用即可。
-
-### 方法二：一键脚本安装
-
-在终端中执行以下命令，将 `YOUR_VAULT_PATH` 替换为你的 Vault 实际路径：
-
-```bash
-VAULT="YOUR_VAULT_PATH"
-DEST="$VAULT/.obsidian/themes/Notion Style"
-mkdir -p "$DEST"
-cp /path/to/this/folder/manifest.json "$DEST/"
-cp /path/to/this/folder/theme.css     "$DEST/"
-echo "✅ 安装完成，请在 Obsidian 设置 → 外观 中选择 Notion Style"
-```
+1. Download `theme.css` from this repository
+2. Copy it to your vault's `.obsidian/themes/Notion Style/` folder (create the folder if it doesn't exist)
+3. In Obsidian → `Settings` → `Appearance` → select **Notion Style**
 
 ---
 
-## Callout 使用方法
+## Callout Usage
 
-在笔记中使用以下语法来创建 Notion 风格的提示框：
+Use the following Markdown syntax to create Notion-style callout blocks:
 
 ```markdown
-> [!info] 信息提示
-> 这是一条蓝色的信息提示，用于说明性内容。
+> [!info] Information
+> A blue callout for general notes and explanations.
 
-> [!tip] 小贴士
-> 这是一条绿色的建议或技巧。
+> [!tip] Tip
+> A green callout for suggestions, best practices, or success states.
 
-> [!warning] 注意
-> 这是一条黄色的警告，需要引起注意。
+> [!warning] Warning
+> A yellow callout for cautions that need attention.
 
-> [!danger] 危险
-> 这是一条红色的错误或危险提示。
+> [!danger] Danger
+> A red callout for errors, critical issues, or destructive actions.
 
-> [!quote] 引用
-> 这是一段引用内容。
+> [!quote] Quote
+> A gray callout for quotations or example content.
 
-> [!note]- 可折叠标注（默认收起）
-> 点击标题可展开。
+> [!note]- Collapsible callout (collapsed by default)
+> Click the title to expand. Add `-` after the type to collapse by default,
+> or `+` to expand by default.
 ```
 
-支持的 Callout 类型：
+**All supported callout keywords:**
 
-| 类型关键词 | 颜色 | 用途 |
-|-----------|------|------|
-| `info`, `note` | 蓝色 | 说明、信息 |
-| `tip`, `success`, `done`, `check` | 绿色 | 建议、成功 |
-| `warning`, `caution`, `attention` | 黄色 | 警告、注意 |
-| `danger`, `error`, `bug`, `failure` | 红色 | 错误、危险 |
-| `quote`, `cite`, `example` | 灰色 | 引用、示例 |
-
----
-
-## 颜色系统（CSS 变量速查）
-
-所有颜色均定义为 CSS 变量，可在 `theme.css` 顶部自定义。
-
-### 亮色模式
-
-| 变量名 | 默认值 | 用途 |
-|--------|--------|------|
-| `--notion-bg-primary` | `#ffffff` | 页面背景 |
-| `--notion-bg-secondary` | `#f7f6f3` | 侧边栏/代码块背景 |
-| `--notion-text-primary` | `#37352f` | 主文字 |
-| `--notion-text-secondary` | `#787774` | 次要文字 |
-| `--notion-text-link` | `#2382e2` | 链接颜色 |
-| `--notion-border` | `rgba(55,53,47,0.16)` | 边框 |
-| `--notion-code-text` | `#eb5757` | 内联代码文字 |
-
-### 暗色模式
-
-| 变量名 | 默认值 | 用途 |
-|--------|--------|------|
-| `--notion-bg-primary` | `#191919` | 页面背景 |
-| `--notion-bg-sidebar` | `#202020` | 侧边栏背景 |
-| `--notion-text-primary` | `rgba(255,255,255,0.81)` | 主文字 |
-| `--notion-codeblock-bg` | `#2f3437` | 代码块背景 |
+| Type | Keywords |
+|------|----------|
+| **Info** (blue) | `info`, `note` |
+| **Tip** (green) | `tip`, `success`, `abstract`, `check`, `done` |
+| **Warning** (yellow) | `warning`, `caution`, `attention`, `question`, `help`, `faq` |
+| **Danger** (red) | `danger`, `error`, `bug`, `failure`, `fail`, `missing` |
+| **Quote** (gray) | `quote`, `cite`, `example` |
 
 ---
 
-## 自定义颜色（高级）
+## Color System (CSS Variables)
 
-如需修改配色，打开 `theme.css`，找到第 1 节 **DESIGN TOKENS**，直接编辑对应变量值即可，无需修改其他任何地方。
+All colors are defined as CSS custom properties at the top of `theme.css` under **Section 1 — DESIGN TOKENS**. You can override any value without touching the rest of the file.
+
+### Light Mode
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `--notion-bg-primary` | `#ffffff` | Page background |
+| `--notion-bg-secondary` | `#fafaf8` | Secondary surfaces |
+| `--notion-bg-sidebar` | `#fafaf8` | Sidebar background |
+| `--notion-bg-hover` | `rgba(55,53,47,0.06)` | Hover state |
+| `--notion-bg-active` | `rgba(55,53,47,0.12)` | Active/selected state |
+| `--notion-text-primary` | `#37352f` | Main body text |
+| `--notion-text-secondary` | `#787774` | Subdued text |
+| `--notion-text-tertiary` | `#9b9a97` | Placeholder / metadata |
+| `--notion-text-link` | `#2382e2` | Link color |
+| `--notion-border` | `rgba(55,53,47,0.16)` | Dividers and borders |
+| `--notion-code-text` | `#eb5757` | Inline code text |
+| `--notion-codeblock-bg` | `rgba(135,131,120,0.07)` | Code block background |
+
+### Dark Mode
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `--notion-bg-primary` | `#191919` | Page & sidebar background |
+| `--notion-bg-secondary` | `#1f1f1f` | Secondary surfaces |
+| `--notion-text-primary` | `rgba(255,255,255,0.81)` | Main body text |
+| `--notion-text-secondary` | `rgba(255,255,255,0.50)` | Subdued text |
+| `--notion-text-link` | `#529cca` | Link color |
+| `--notion-border` | `rgba(255,255,255,0.13)` | Dividers and borders |
+| `--notion-code-text` | `#ff7b72` | Inline code text |
+| `--notion-codeblock-bg` | `#232829` | Code block background |
+
+### Callout Colors
+
+| Variable group | Light | Dark |
+|----------------|-------|------|
+| `--notion-callout-info-*` | Blue `#2382e2` | Blue `#529cca` |
+| `--notion-callout-tip-*` | Green `#0f9d58` | Green `#4ca16a` |
+| `--notion-callout-warn-*` | Amber `#f2a93b` | Amber `#d4a050` |
+| `--notion-callout-error-*` | Red `#e03e3e` | Red `#d05050` |
+| `--notion-callout-quote-*` | Gray `#9b9a97` | White `rgba(255,255,255,0.25)` |
+
+---
+
+## Customization
+
+To override any value, open `theme.css` and edit the variables in **Section 1**. You can also paste overrides into Obsidian's **CSS snippets** (`Settings` → `Appearance` → `CSS snippets`) so your changes survive theme updates.
 
 ```css
-/* 示例：将亮色模式背景改为暖白色 */
+/* Change page background to warm white */
 .theme-light {
   --notion-bg-primary: #fefdf9;
 }
 
-/* 示例：将链接颜色改为紫色 */
+/* Change link color to purple */
 .theme-light {
   --notion-text-link: #7c4dff;
+}
+
+/* Wider content area */
+.theme-light, .theme-dark {
+  --notion-content-width: 1200px;
+  --file-line-width: 1200px;
 }
 ```
 
 ---
 
-## 兼容性
+## Disclaimer
 
-- **Obsidian 最低版本**：1.0.0
-- **支持模式**：实时预览（Live Preview）、阅读视图（Reading View）、源码模式（Source Mode）
-- **支持平台**：macOS、Windows、Linux、iOS、Android
+This theme is provided as is, and is designed for my personal use of Obsidian on macOS. As such it is not thoroughly tested across all operating systems and use cases.
 
----
-
-## 已知问题 & FAQ
-
-**Q: 主题安装后没有变化？**
-A: 请确认文件夹名称为 `Notion Style`（区分大小写），且文件夹内同时包含 `manifest.json` 和 `theme.css`。
-
-**Q: 代码块没有语法高亮？**
-A: 主题提供基础的 token 颜色，完整语法高亮依赖 Obsidian 内置的 Prism.js。在实时预览模式下高亮效果最佳。
-
-**Q: 如何恢复默认样式？**
-A: 在 Obsidian 设置 → 外观 → 主题中，选择 **Default** 即可。
-
-**Q: 可以和 Style Settings 插件配合使用吗？**
-A: 目前不支持 Style Settings 面板，但可以直接编辑 `theme.css` 中的 CSS 变量进行自定义。
-
----
-
-## 版本历史
-
-| 版本 | 日期 | 变更 |
-|------|------|------|
-| 1.0.0 | 2026-03-13 | 首次发布，完整 Notion 风格实现 |
+This theme modifies significant parts of the Obsidian interface, so it may break with future updates. It may also be incompatible with other bits of custom CSS you have.
