@@ -171,7 +171,7 @@ All colors are defined as CSS custom properties at the top of `theme.css` under 
 | `--notion-text-link` | `#2382e2` | Link color |
 | `--notion-border` | `rgba(55,53,47,0.16)` | Dividers and borders |
 | `--notion-code-text` | `#eb5757` | Inline code text |
-| `--notion-codeblock-bg` | `rgba(135,131,120,0.07)` | Code block background |
+| `--notion-codeblock-bg` | `#f9f8f7` | Code block background |
 
 ### Dark Mode
 

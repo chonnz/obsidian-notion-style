@@ -37,9 +37,9 @@ body.theme-light {
   --notion-code-bg:          #ededeb;
   --notion-code-border:      #ededeb;
   --notion-code-text:        #eb5757;
-  --notion-codeblock-bg:     #f7f6f3;
+  --notion-codeblock-bg:     #f9f8f7;
   --notion-codeblock-text:   #37352f;
-  --notion-codeblock-border: #f7f6f3;
+  --notion-codeblock-border: #f9f8f7;
 
   /* ── Callout palette ── */
   --notion-callout-info-bg:      #e7f3ff;
@@ -79,7 +79,7 @@ body.theme-light {
      These are read by BOTH the CM6 editor and the Prism reading view,
      so setting them once gives consistent colors everywhere.
      Palette: Notion Style Light (via Typora notion-style-light theme). ── */
-  --code-background:   #f7f6f3;
+  --code-background:   #f9f8f7;
   --code-normal:       #37352f;   /* body text — same as notion text */
   --code-comment:      #8d8d8d;   /* gray */
   --code-function:     #d63253;   /* red-pink  — functions / defs */
