@@ -2072,7 +2072,59 @@ pre .copy-code-button.mod-copied {
 
 
 /* ─────────────────────────────────────────────────────────────
-   31. MISCELLANEOUS POLISH
+   31. MERMAID DIAGRAMS
+   ───────────────────────────────────────────────────────────── */
+
+/* In reading mode, global line-height / font-size / font-family rules
+   bleed into Mermaid's foreignObject HTML content.
+   Mermaid pre-calculates fixed node dimensions — if the rendered text
+   is taller/wider than expected the content gets clipped.
+   Fix: reset all potentially conflicting properties inside .mermaid. */
+
+.markdown-preview-view .mermaid,
+.markdown-reading-view .mermaid {
+  font-family: "trebuchet ms", verdana, arial, sans-serif !important;
+  font-size:   14px   !important;
+  line-height: normal !important;
+}
+
+/* foreignObject clips via SVG attribute overflow="hidden";
+   override with CSS to prevent text cut-off */
+.markdown-preview-view .mermaid foreignObject,
+.markdown-reading-view .mermaid foreignObject {
+  overflow: visible !important;
+}
+
+/* Reset global theme rules that bleed into node label divs */
+.markdown-preview-view .mermaid foreignObject div,
+.markdown-preview-view .mermaid foreignObject p,
+.markdown-preview-view .mermaid foreignObject span,
+.markdown-reading-view .mermaid foreignObject div,
+.markdown-reading-view .mermaid foreignObject p,
+.markdown-reading-view .mermaid foreignObject span {
+  font-family: "trebuchet ms", verdana, arial, sans-serif !important;
+  font-size:   14px   !important;
+  line-height: normal !important;
+  white-space: nowrap !important;
+}
+
+/* Vertically center label text within foreignObject */
+.markdown-preview-view .mermaid foreignObject > div,
+.markdown-reading-view .mermaid foreignObject > div {
+  display:         flex          !important;
+  align-items:     center        !important;
+  justify-content: center        !important;
+  height:          100%          !important;
+}
+
+.mermaid svg {
+  overflow: visible !important;
+  max-width: 100%   !important;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   32. MISCELLANEOUS POLISH
    ───────────────────────────────────────────────────────────── */
 
 /* Remove heavy box shadows on panes */
