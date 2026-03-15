@@ -53,7 +53,7 @@ dark theme:
 Five color families with colored left border, tinted background, and styled title:
 
 | Family | Keywords | Color |
-|:------:|----------|-------|
+|:-------|----------|:------|
 | Info | `info`, `note` | Blue |
 | Tip | `tip`, `success`, `abstract`, `check`, `done` | Green |
 | Warning | `warning`, `caution`, `attention`, `question`, `help`, `faq` | Yellow |
