@@ -1877,11 +1877,25 @@ pre .copy-code-button.mod-copied {
   min-width:   11em     !important;
 }
 
-.metadata-property-key input.metadata-property-key-input {
+.metadata-property-key input.metadata-property-key-input,
+.metadata-property-key input.metadata-property-key-input:hover,
+.metadata-property-key input.metadata-property-key-input:focus,
+.metadata-property-key input.metadata-property-key-input:focus-within,
+.workspace .metadata-property-key input[type="text"] {
   border:     none !important;
   outline:    none !important;
   box-shadow: none !important;
   background: transparent !important;
+  padding:    0 !important;
+}
+
+.metadata-property-key,
+.metadata-property-key:hover,
+.metadata-property-key:focus,
+.metadata-property-key:focus-within {
+  border:     none !important;
+  outline:    none !important;
+  box-shadow: none !important;
 }
 
 .metadata-property-value {
