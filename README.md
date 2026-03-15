@@ -113,6 +113,11 @@ Fully styled dark theme using Notion's latest dark palette:
 2. Copy it to your vault's `.obsidian/themes/Notion Style/` folder (create the folder if it doesn't exist)
 3. In Obsidian → `Settings` → `Appearance` → select **Notion Style**
 
+**Recommended Settings**
+
+1. Open Obsidian → `Settings` → `Appearance`
+2. Click `Accent color`→ Input `rgb(37, 131, 226)`
+
 ---
 
 ## Callout Usage

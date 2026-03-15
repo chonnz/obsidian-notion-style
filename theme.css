@@ -255,7 +255,6 @@ body {
 .nav-files-container,
 .workspace-ribbon,
 .workspace-tabs,
-.sidebar-toggle-button,
 .nav-header,
 .nav-action-button,
 .nav-buttons-container,
@@ -264,6 +263,7 @@ body {
 .mod-right-split {
   background: var(--notion-bg-sidebar) !important;
 }
+
 
 /* ── File tree container ── */
 .nav-files-container {
@@ -1749,8 +1749,8 @@ pre .copy-code-button.mod-copied {
   opacity: 0.85 !important;
 }
 
-.workspace button:not(.mod-cta),
-.modal:not(.mod-settings) button:not(.mod-cta) {
+.workspace button:not(.mod-cta):not(.clickable-icon),
+.modal:not(.mod-settings) button:not(.mod-cta):not(.clickable-icon) {
   border:        1px solid var(--notion-border) !important;
   border-radius: var(--notion-radius-sm) !important;
   background:    transparent !important;
@@ -1760,8 +1760,8 @@ pre .copy-code-button.mod-copied {
   transition:    var(--notion-transition) !important;
 }
 
-.workspace button:not(.mod-cta):hover,
-.modal:not(.mod-settings) button:not(.mod-cta):hover {
+.workspace button:not(.mod-cta):not(.clickable-icon):hover,
+.modal:not(.mod-settings) button:not(.mod-cta):not(.clickable-icon):hover {
   background: var(--notion-bg-hover) !important;
 }
 
@@ -1857,12 +1857,15 @@ pre .copy-code-button.mod-copied {
 }
 
 /* In editing mode the metadata container sits outside .cm-content,
-   so constrain it to match the body text column width. */
+   so constrain it to match the body text column width exactly.
+   width: calc(100% - padding*2) handles panels narrower than max-width;
+   max-width caps it at the same column width as the body text. */
 .markdown-source-view .metadata-container {
+  width:         calc(100% - var(--notion-page-padding) * 2) !important;
   max-width:     calc(var(--notion-content-width) - var(--notion-page-padding) * 2) !important;
   margin-left:   auto !important;
   margin-right:  auto !important;
-  margin-bottom: 12px !important; /* half of the default 24px */
+  margin-bottom: 12px !important;
 }
 
 .metadata-property-key {
@@ -2059,6 +2062,26 @@ pre .copy-code-button.mod-copied {
     font-size: 1.875em !important;
   }
 
+  /* Edit-mode title + metadata: match reading-mode layout on mobile */
+  .markdown-source-view .inline-title {
+    padding-top:   24px !important;
+    padding-left:  var(--notion-page-padding-sm) !important;
+    padding-right: var(--notion-page-padding-sm) !important;
+    max-width:     100% !important;
+  }
+
+  .markdown-source-view .inline-title::after {
+    left:  var(--notion-page-padding-sm) !important;
+    right: var(--notion-page-padding-sm) !important;
+  }
+
+  .markdown-source-view .metadata-container {
+    width:        auto !important;
+    max-width:    100% !important;
+    margin-left:  var(--notion-page-padding-sm) !important;
+    margin-right: var(--notion-page-padding-sm) !important;
+  }
+
   /* Stack nav full width */
   .nav-file-title,
   .nav-folder-title {
@@ -2081,6 +2104,22 @@ pre .copy-code-button.mod-copied {
 
   .cm-editor .cm-content {
     padding: 16px 16px 48px !important;
+  }
+
+  .markdown-source-view .inline-title {
+    padding-top:   16px !important;
+    padding-left:  16px !important;
+    padding-right: 16px !important;
+  }
+
+  .markdown-source-view .inline-title::after {
+    left:  16px !important;
+    right: 16px !important;
+  }
+
+  .markdown-source-view .metadata-container {
+    margin-left:  16px !important;
+    margin-right: 16px !important;
   }
 }
 
