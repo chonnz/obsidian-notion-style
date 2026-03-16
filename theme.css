@@ -1186,10 +1186,25 @@ pre .copy-code-button.mod-copied {
 
 
 /* ── Task / Checkbox lists ── */
+
+/* 取消通用 ul 的 24px 缩进对 task list 的影响 */
+.markdown-preview-view ul.contains-task-list,
+.markdown-reading-view ul.contains-task-list {
+  padding-left: 0 !important;
+}
+
 .markdown-preview-view .task-list-item,
 .markdown-reading-view .task-list-item {
   list-style: none   !important;
   padding-left: 4px  !important;
+  position:  static  !important;
+}
+
+/* 高特异性选择器确保覆盖 Obsidian 自身的 align-items: flex-start */
+.markdown-preview-view ul.contains-task-list > li.task-list-item,
+.markdown-reading-view ul.contains-task-list > li.task-list-item {
+  display:      flex   !important;
+  align-items:  center !important;
 }
 
 .markdown-preview-view .task-list-item::before,
@@ -1197,24 +1212,32 @@ pre .copy-code-button.mod-copied {
   display: none !important;
 }
 
-.markdown-preview-view input[type="checkbox"],
-.markdown-reading-view input[type="checkbox"] {
+/* 消除 li 内部 p 标签的 margin，防止撑开导致错位 */
+.markdown-preview-view .task-list-item > p,
+.markdown-reading-view .task-list-item > p {
+  margin: 0 !important;
+}
+
+.markdown-preview-view .task-list-item-checkbox,
+.markdown-reading-view .task-list-item-checkbox {
   appearance:       none         !important;
   -webkit-appearance: none       !important;
   width:            16px         !important;
   height:           16px         !important;
   border:           1.5px solid var(--notion-border-strong) !important;
   border-radius:    3px          !important;
-  margin-right:     6px          !important;
-  vertical-align:   -3px         !important;
+  margin:           0 6px 0 0   !important;
   cursor:           pointer      !important;
   background:       transparent  !important;
   transition:       background 120ms, border-color 120ms !important;
   flex-shrink:      0            !important;
+  align-self:       center       !important;
+  position:         relative     !important;
+  top:              0            !important;  /* 抵消 Obsidian app.css 的 top: 0.2em */
 }
 
-.markdown-preview-view input[type="checkbox"]:checked,
-.markdown-reading-view input[type="checkbox"]:checked {
+.markdown-preview-view .task-list-item-checkbox:checked,
+.markdown-reading-view .task-list-item-checkbox:checked {
   background:    #35aaff        !important;
   border-color:  #35aaff        !important;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9' viewBox='0 0 12 9'%3E%3Cpath fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' d='M1 4.5L4.5 8L11 1'/%3E%3C/svg%3E") !important;
