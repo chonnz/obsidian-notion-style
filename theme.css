@@ -1231,9 +1231,9 @@ pre .copy-code-button.mod-copied {
   background:       transparent  !important;
   transition:       background 120ms, border-color 120ms !important;
   flex-shrink:      0            !important;
-  align-self:       center       !important;
+  align-self:       flex-start   !important;
   position:         relative     !important;
-  top:              0            !important;  /* 抵消 Obsidian app.css 的 top: 0.2em */
+  top:              0.3em       !important;
 }
 
 .markdown-preview-view .task-list-item-checkbox:checked,
