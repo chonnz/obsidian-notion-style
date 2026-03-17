@@ -15,9 +15,9 @@
 body.theme-light {
   /* ── Background layers ── */
   --notion-bg-primary:       #ffffff;
-  --notion-bg-secondary:     #fafaf8;   /* ← lighter (was #f7f6f3) */
+  --notion-bg-secondary:     #F9F8F7;   /* ← lighter (was #f7f6f3) */
   --notion-bg-tertiary:      #f0efed;
-  --notion-bg-sidebar:       #fafaf8;   /* ← lighter (was #f7f6f3) */
+  --notion-bg-sidebar:       #F9F8F7;   /* ← lighter (was #f7f6f3) */
   --notion-bg-hover:         rgba(55, 53, 47, 0.06);
   --notion-bg-active:        rgba(55, 53, 47, 0.12);
 
